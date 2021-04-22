@@ -37,11 +37,16 @@ function App() {
     <>
       {loading ? <h1>Loading...</h1> : (
         <>
-          {}
+          <div className="container">
+            {pokemonData.map(pokemon => (
+              <Card key={pokemon.id} pokemon={pokemon} />
+            ))}
+          </div>
+          <button className='button'>Load more</button>
         </>
       )}
     </>
   );
-}
+};
 
 export default App;

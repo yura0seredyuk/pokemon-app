@@ -1,0 +1,32 @@
+.card {
+  border: 1px solid black;
+  width: 200px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.card__image__container {
+
+}
+
+.card__image {
+  width: 200px;
+  padding-bottom: 10px;
+}
+
+.card__name {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.card__types {
+  display: flex;
+  justify-content: center;
+}
+
+.card__type {
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+}
