@@ -1,7 +1,8 @@
 import React from 'react';
-import './Card.css'
+import './Card.css';
+import pokemonTypes from '../../Helpers/pokemonTypes';
 
-export function Card({ pokemon }) {
+export function Card({ pokemon, selectPokemon }) {
   return (
     <div className='card'>
       <div className='card__image__container'>
@@ -12,11 +13,12 @@ export function Card({ pokemon }) {
       </div>
       <div className='card__types'>
         {pokemon.types.map(type => (
-          <div className='card__type' key={type.slot}>
+          <div className='card__type' key={type.slot} style={{ backgroundColor: pokemonTypes[type.type.name] }}>
             {type.type.name}
           </div>
         ))}
       </div>
+      <button type='button' onClick={() => selectPokemon(pokemon.id)}>Info</button>
     </div>
   );
 }
