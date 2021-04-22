@@ -1,5 +1,6 @@
 import React from 'react';
 import pokemonTypes from '../../Helpers/pokemonTypes';
+import './Details.css';
 
 export function Details({ pokemon }) {
   return (
@@ -18,6 +19,23 @@ export function Details({ pokemon }) {
             {type.type.name}
           </div>
         ))}
+      </div>
+
+      <div className="pokemon__details__stats">
+        {pokemon.stats.map(stat => (
+          <div className='pokemon__details__stat__container' key={stat.stat.name}>
+            <div className="pokemon__details__stat-name">{stat.stat.name}</div>
+            <div className='pokemon__details__base-stat'>{stat.base_stat}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className='pokemon__details__weight'>
+        {pokemon.weight}
+      </div>
+
+      <div className="pokemon__details__moves">
+        {pokemon.moves.length}
       </div>
     </div>
   );

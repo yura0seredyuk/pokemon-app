@@ -11,6 +11,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   max-width: 800px;
 }
 
@@ -37,4 +38,8 @@
   text-align: right;
   padding-right: 50px;
   background-color: lightsalmon;
+}
+
+.details {
+  display: flex;
 }

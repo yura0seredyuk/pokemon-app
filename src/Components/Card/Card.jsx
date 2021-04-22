@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.css';
 import pokemonTypes from '../../Helpers/pokemonTypes';
 
-export function Card({ pokemon, selectPokemon }) {
+export function Card({ pokemon, selectPokemon,openModal }) {
   return (
     <div className='card'>
       <div className='card__image__container'>
@@ -18,7 +18,10 @@ export function Card({ pokemon, selectPokemon }) {
           </div>
         ))}
       </div>
-      <button type='button' onClick={() => selectPokemon(pokemon.id)}>Info</button>
+      <button type='button' onClick={() => {
+        selectPokemon(pokemon.id);
+        openModal();
+      }}>Info</button>
     </div>
   );
 }
