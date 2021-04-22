@@ -32,10 +32,6 @@ function App() {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {
-    subtitle.style.color = '#f00';
-  }
-
   function closeModal(){
     setIsOpen(false);
   }
@@ -79,7 +75,7 @@ function App() {
   return (
     <>
       <div className='title'>Pokedex</div>
-      {loading ? <h1>Loading...</h1> : (
+      {loading ? (<><div className='loader__container'><div className="loader"></div></div></>) : (
         <>
           <div className="container">
             {pokemonData.map(pokemon => (
@@ -93,20 +89,10 @@ function App() {
 
           <Modal
             isOpen={modalIsOpen}
-            onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
             style={customStyles}
             contentLabel="Example Modal"
           >
-
-            <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
-            <button onClick={closeModal}>close</button>
-
-            <div className='details'>
-              {selectedPokemon.map(pokemon => (
-                <Details pokemon={pokemon} key={pokemon.id} />
-              ))}
-            </div>
 
           </Modal>
 
@@ -115,6 +101,12 @@ function App() {
               &copy; Pokedex
             </div>
           </footer>
+
+          <div className='details'>
+            {selectedPokemon.map(pokemon => (
+              <Details pokemon={pokemon} key={pokemon.id} />
+            ))}
+          </div>
         </>
       )}
     </>

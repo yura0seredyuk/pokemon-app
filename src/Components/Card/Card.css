@@ -3,10 +3,12 @@
   width: 200px;
   border-radius: 10px;
   padding: 20px;
+  margin: 20px;
 }
 
 .card__image__container {
-
+  border-radius: 50%;
+  background-color: #EFEFBB;
 }
 
 .card__image {
@@ -15,10 +17,18 @@
   padding-bottom: 10px;
 }
 
+.card__name__container {
+  text-align: center;
+  padding: 15px 0;
+}
+
 .card__name {
   text-align: center;
-  padding-bottom: 10px;
   text-transform: capitalize;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-size: 1.2em;
+  padding: 5px 10px;
 }
 
 .card__types {

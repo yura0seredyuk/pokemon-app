@@ -1,10 +1,33 @@
 .pokemon__details__container {
-  width: 400px;
+  width: 200px;
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
 }
 
+.pokemon__details__image__container {
+  padding: 10px;
+}
+
 .pokemon__details__image {
-  width: 400px;
+  width: 180px;
+}
+
+.pokemon__details__name {
+  text-transform: capitalize;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.pokemon__details__types {
+  display: flex;
+  justify-content: center;
+}
+
+.pokemon__details__type {
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  text-transform: capitalize;
 }

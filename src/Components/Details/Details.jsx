@@ -10,7 +10,7 @@ export function Details({ pokemon }) {
       </div>
 
       <div className="pokemon__details__name">
-        {pokemon.name}
+        {`${pokemon.name} #${pokemon.id.toString().padStart(3, '0')}`}
       </div>
 
       <div className="pokemon__details__types">
@@ -31,7 +31,7 @@ export function Details({ pokemon }) {
       </div>
 
       <div className='pokemon__details__weight'>
-        {pokemon.weight}
+        {`Weight ${pokemon.weight}`}
       </div>
 
       <div className="pokemon__details__moves">
