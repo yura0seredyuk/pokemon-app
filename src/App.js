@@ -14,7 +14,8 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    background            : '#EFEFBB'
   }
 };
 
@@ -26,7 +27,6 @@ function App() {
   const [selectedPokemon, setSelectedPokemon] = useState([]);
   const URL = 'https://pokeapi.co/api/v2/pokemon/?limit=12';
   const [modalIsOpen,setIsOpen] = useState(false);
-  var subtitle;
 
   function openModal() {
     setIsOpen(true);

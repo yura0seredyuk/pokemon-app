@@ -4,7 +4,13 @@ import pokemonTypes from '../../Helpers/pokemonTypes';
 
 export function Card({ pokemon, selectPokemon,openModal }) {
   return (
-    <div className='card'>
+    <div
+      className='card'
+      onClick={() => {
+        selectPokemon(pokemon.id);
+        openModal();
+      }}
+    >
       <div className='card__image__container'>
         <img
           className='card__image'
@@ -30,16 +36,6 @@ export function Card({ pokemon, selectPokemon,openModal }) {
           </div>
         ))}
       </div>
-
-      <button
-        type='button'
-        onClick={() => {
-          selectPokemon(pokemon.id);
-          openModal();
-        }}
-      >
-        Info
-      </button>
     </div>
   );
 }
