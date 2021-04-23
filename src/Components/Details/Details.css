@@ -11,6 +11,7 @@
 
 .pokemon__details__image {
   width: 180px;
+  height: 180px;
 }
 
 .pokemon__details__name {

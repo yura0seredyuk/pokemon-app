@@ -79,12 +79,22 @@ function App() {
         <>
           <div className="container">
             {pokemonData.map(pokemon => (
-              <Card key={pokemon.id} pokemon={pokemon} openModal={openModal} selectPokemon={handlePokemonSelection} />
+              <Card
+                key={pokemon.id}
+                pokemon={pokemon}
+                openModal={openModal}
+                selectPokemon={handlePokemonSelection}
+              />
             ))}
           </div>
 
           <div className='button__container'>
-            <button className='button' onClick={next}>Load more</button>
+            <button
+              className='button'
+              onClick={next}
+            >
+              Load more
+            </button>
           </div>
 
           <Modal
@@ -93,7 +103,11 @@ function App() {
             style={customStyles}
             contentLabel="Example Modal"
           >
-
+            <div className='details'>
+              {selectedPokemon.map(pokemon => (
+                <Details pokemon={pokemon} key={pokemon.id} />
+              ))}
+            </div>
           </Modal>
 
           <footer className='footer'>
@@ -101,12 +115,6 @@ function App() {
               &copy; Pokedex
             </div>
           </footer>
-
-          <div className='details'>
-            {selectedPokemon.map(pokemon => (
-              <Details pokemon={pokemon} key={pokemon.id} />
-            ))}
-          </div>
         </>
       )}
     </>
