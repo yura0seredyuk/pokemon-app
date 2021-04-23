@@ -5,6 +5,13 @@
   padding: 20px;
   margin: 20px;
   cursor: pointer;
+  transition: transform 1s;
+}
+
+.card:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .card__image__container {

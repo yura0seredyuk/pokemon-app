@@ -101,11 +101,11 @@ function App() {
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             style={customStyles}
-            contentLabel="Example Modal"
+            contentLabel='Example Modal'
           >
-            <div className='details'>
+            <div className='details details--fadeIn'>
               {selectedPokemon.map(pokemon => (
-                <Details pokemon={pokemon} key={pokemon.id} />
+                <Details pokemon={pokemon} key={pokemon.id} closeModal={closeModal}/>
               ))}
             </div>
           </Modal>
