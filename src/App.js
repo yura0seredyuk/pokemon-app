@@ -4,6 +4,7 @@ import { Card } from './Components/Card';
 import { Details } from './Components/Details';
 import { getAllPokemon, getPokemon } from './Services/service';
 import './App.css';
+import { CSSTransition } from 'react-transition-group';
 
 Modal.setAppElement('#root')
 
@@ -97,18 +98,24 @@ function App() {
             </button>
           </div>
 
-          <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            style={customStyles}
-            contentLabel='Example Modal'
+          <CSSTransition
+            timeout={300}
+            classNames="dialog"
           >
-            <div className='details details--fadeIn'>
-              {selectedPokemon.map(pokemon => (
-                <Details pokemon={pokemon} key={pokemon.id} closeModal={closeModal}/>
-              ))}
-            </div>
-          </Modal>
+            <Modal
+              isOpen={modalIsOpen}
+              onRequestClose={closeModal}
+              style={customStyles}
+              contentLabel='Example Modal'
+              closeTimeoutMS={500}
+            >
+              <div>
+                {selectedPokemon.map(pokemon => (
+                  <Details pokemon={pokemon} key={pokemon.id} closeModal={closeModal} />
+                ))}
+              </div>
+            </Modal>
+          </CSSTransition>
 
           <footer className='footer'>
             <div className='footer__content'>
@@ -119,6 +126,6 @@ function App() {
       )}
     </>
   );
-};
+}
 
 export default App;

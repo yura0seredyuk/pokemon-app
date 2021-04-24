@@ -4,7 +4,7 @@ import './Details.css';
 
 export function Details({ pokemon, closeModal }) {
   return (
-    <div className='pokemon__details__container pokemon__details--fadeIn' onClick={closeModal}>
+    <div className='pokemon__details__container' onClick={closeModal}>
 
       <div className='pokemon__details__height__container'>
         <span className='pokemon__details__height'>
@@ -58,7 +58,7 @@ export function Details({ pokemon, closeModal }) {
               {stat.stat.name}
             </div>
             <div className='pokemon__details__base-stat'>
-              <progress id='file' max='150' value={stat.base_stat}></progress>
+              <progress id='file' max='150' value={stat.base_stat}>{stat.base_stat}</progress>
               <span className='pokemon__details__base-stat__value'>{stat.base_stat}</span>
             </div>
           </div>
