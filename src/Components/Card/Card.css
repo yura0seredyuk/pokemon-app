@@ -1,9 +1,9 @@
 .card {
-  border: 1px solid black;
   width: 200px;
-  border-radius: 10px;
-  padding: 20px;
   margin: 20px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
   cursor: pointer;
   transition: transform 1s;
 }
@@ -31,12 +31,12 @@
 }
 
 .card__name {
+  padding: 5px 10px;
   text-align: center;
   text-transform: capitalize;
+  font-size: 1.2em;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  font-size: 1.2em;
-  padding: 5px 10px;
 }
 
 .card__types {
@@ -45,9 +45,9 @@
 }
 
 .card__type {
-  border: 1px solid black;
-  padding: 5px 10px;
-  border-radius: 5px;
   margin: 0 5px;
+  padding: 5px 10px;
   text-transform: capitalize;
+  border: 1px solid black;
+  border-radius: 5px;
 }

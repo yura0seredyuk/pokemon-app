@@ -1,33 +1,33 @@
 .header {
-  text-align: center;
+  margin-bottom: 20px;
   padding: 20px 0;
   background-color: coral;
   font-weight: bold;
   font-size: 20px;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  text-align: center;
 }
 
 .main__container {
   display: flex;
+  margin: auto;
+  max-width: 900px;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 900px;
-  margin: auto;
 }
 
 .main__button__container {
-  margin: 20px 0;
   display: flex;
+  margin: 20px 0;
   justify-content: center;
 }
 
 .main__button {
   background: coral;
-  text-transform: uppercase;
+  color: orangered;
   font-size: 15px;
   font-weight: 700;
-  color: orangered;
+  text-transform: uppercase;
   transition: transform 1s , color 1s;
 }
 
@@ -41,9 +41,9 @@
   position: fixed;
   top: 10px;
   left: 10px;
-  border-radius: 50%;
-  width: 40px;
   height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 
 .main__button:hover {
@@ -55,9 +55,9 @@
 
 .footer {
   height: 50px;
+  padding-right: 50px;
   line-height: 50px;
   text-align: right;
-  padding-right: 50px;
   background-color: lightsalmon;
 }
 
@@ -70,11 +70,11 @@
 }
 
 .loader {
+  width: 120px;
+  height: 120px;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #EFEFBB;
-  width: 120px;
-  height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
