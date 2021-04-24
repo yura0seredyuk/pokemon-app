@@ -4,10 +4,10 @@ import './Details.css';
 
 export function Details({ pokemon, closeModal }) {
   return (
-    <div className='pokemon__details__container' onClick={closeModal}>
+    <div className='details__container' onClick={closeModal}>
 
-      <div className='pokemon__details__height__container'>
-        <span className='pokemon__details__height'>
+      <div className='details__height__container'>
+        <span className='details__height'>
           <div>
             Height:
           </div>
@@ -17,8 +17,8 @@ export function Details({ pokemon, closeModal }) {
         </span>
       </div>
 
-      <div className='pokemon__details__weight__container'>
-        <span className='pokemon__details__weight'>
+      <div className='details__weight__container'>
+        <span className='details__weight'>
           <div>
             Weight:
           </div>
@@ -28,21 +28,21 @@ export function Details({ pokemon, closeModal }) {
         </span>
       </div>
 
-      <div className='pokemon__details__image__container'>
+      <div className='details__image__container'>
         <img
           src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
-          alt={pokemon.name} className="pokemon__details__image"
+          alt={pokemon.name} className="details__image"
         />
       </div>
 
-      <div className='pokemon__details__name'>
+      <div className='details__name'>
         {`${pokemon.name} #${pokemon.id.toString().padStart(3, '0')}`}
       </div>
 
-      <div className='pokemon__details__types'>
+      <div className='details__types'>
         {pokemon.types.map(type => (
           <div
-            className='pokemon__details__type'
+            className='details__type'
             key={type.slot}
             style={{ backgroundColor: pokemonTypes[type.type.name] }}
           >
@@ -51,19 +51,19 @@ export function Details({ pokemon, closeModal }) {
         ))}
       </div>
 
-      <div className="pokemon__details__stats">
+      <div className='details__stats'>
         {pokemon.stats.map(stat => (
-          <div className='pokemon__details__stat__container' key={stat.stat.name}>
-            <div className="pokemon__details__stat-name">
+          <div className='details__stat__container' key={stat.stat.name}>
+            <div className='details__stat-name'>
               {stat.stat.name}
             </div>
-            <div className='pokemon__details__base-stat'>
+            <div className='details__base-stat'>
               <progress
                 max='150'
                 id='progressBar'
                 value={stat.base_stat}>{stat.base_stat}
               </progress>
-              <span className='pokemon__details__base-stat__value'>
+              <span className='details__base-stat__value'>
                 {stat.base_stat}
               </span>
             </div>
@@ -71,7 +71,7 @@ export function Details({ pokemon, closeModal }) {
         ))}
       </div>
 
-      <div className='pokemon__details__moves'>
+      <div className='details__moves'>
         {`Total moves: ${pokemon.moves.length}`}
       </div>
     </div>

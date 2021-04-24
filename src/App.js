@@ -39,9 +39,11 @@ function App() {
   }, []);
 
   const loadingPokemon = async (data) => {
-    let pokemon = await Promise.all(data.map(async pokemon => {
-      return await getPokemon(pokemon.url);
-    }));
+    let pokemon = await Promise.all(
+      data.map(async pokemon => {
+        return await getPokemon(pokemon.url);
+      }
+    ));
 
     setPokemonData(pokemon);
   };
@@ -72,7 +74,14 @@ function App() {
   return (
     <>
       <header className='header'>Pokedex</header>
-      {loading ? (<><div className='loader__container'><div className="loader"></div></div></>) : (
+      {loading ? (
+        <>
+          <div className='loader__container'>
+            <div className='loader'>
+            </div>
+          </div>
+        </>
+      ) : (
         <div className='main'>
           <div className="main__container">
             {pokemonData.map(pokemon => (
@@ -105,7 +114,7 @@ function App() {
 
           <CSSTransition
             timeout={300}
-            classNames="main__dialog"
+            classNames='main__dialog'
           >
             <Modal
               isOpen={modalIsOpen}

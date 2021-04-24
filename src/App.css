@@ -53,16 +53,12 @@
   color: white;
 }
 
-.main__footer {
+.footer {
   height: 50px;
   line-height: 50px;
   text-align: right;
   padding-right: 50px;
   background-color: lightsalmon;
-}
-
-.main__details {
-  display: flex;
 }
 
 .loader__container {
