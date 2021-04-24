@@ -10,11 +10,10 @@
   cursor: pointer;
 }
 
+.details__weight__container,
 .details__height__container {
   display: flex;
   position: absolute;
-  top: -10px;
-  right: -10px;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -24,26 +23,17 @@
   background-color: #f3f3f3;
 }
 
+.details__height__container {
+  right: -10px;
+}
+
+.details__weight,
 .details__height {
   font-size: 0.7em;
 }
 
 .details__weight__container {
-  display: flex;
-  position: absolute;
-  top: -10px;
   left: -10px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  background-color: #f3f3f3;
-}
-
-.details__weight {
-  font-size: 0.7em;
 }
 
 .details__image__container {
