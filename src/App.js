@@ -3,22 +3,11 @@ import Modal from 'react-modal';
 import { Card } from './Components/Card';
 import { Details } from './Components/Details';
 import { getAllPokemon, getPokemon } from './Services/service';
-import './App.css';
 import { CSSTransition } from 'react-transition-group';
+import { modalStyles } from './Helpers/modalStyles';
+import './App.css';
 
 Modal.setAppElement('#root')
-
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
-    background            : '#EFEFBB'
-  }
-};
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -41,7 +30,7 @@ function App() {
     async function fetchData() {
       let response = await getAllPokemon(URL);
       setNextPage(response.next);
-      setPrevPage(response.prev);
+      setPrevPage(response.previous);
       await loadingPokemon(response.results);
       setLoading(false);
     }
@@ -62,6 +51,17 @@ function App() {
     let data = await getAllPokemon(nextPage);
     await loadingPokemon(data.results);
     setNextPage(data.next);
+    setPrevPage(data.previous);
+    setLoading(false);
+  }
+
+  const prev = async () => {
+    if (!prevPage) return;
+    setLoading(true);
+    let data = await getAllPokemon(prevPage);
+    await loadingPokemon(data.results);
+    setNextPage(data.next);
+    setPrevPage(data.previous);
     setLoading(false);
   }
 
@@ -69,16 +69,12 @@ function App() {
     setSelectedPokemon(pokemonData.filter(pokemon => pokemon.id === pokemonId));
   }
 
-  //TODO delete console
-  console.log(pokemonData);
-  console.log(selectedPokemon);
-
   return (
     <>
-      <div className='title'>Pokedex</div>
+      <header className='header'>Pokedex</header>
       {loading ? (<><div className='loader__container'><div className="loader"></div></div></>) : (
-        <>
-          <div className="container">
+        <div className='main'>
+          <div className="main__container">
             {pokemonData.map(pokemon => (
               <Card
                 key={pokemon.id}
@@ -89,29 +85,42 @@ function App() {
             ))}
           </div>
 
-          <div className='button__container'>
+          <div className='main__button__container'>
             <button
-              className='button'
+              className='main__button main__next__button'
               onClick={next}
             >
               Load more
             </button>
           </div>
 
+          {prevPage && (
+            <button
+              className='main__button main__prev__button'
+              onClick={prev}
+            >
+              &lt;
+            </button>
+          )}
+
           <CSSTransition
             timeout={300}
-            classNames="dialog"
+            classNames="main__dialog"
           >
             <Modal
               isOpen={modalIsOpen}
               onRequestClose={closeModal}
-              style={customStyles}
+              style={modalStyles}
               contentLabel='Example Modal'
               closeTimeoutMS={500}
             >
               <div>
                 {selectedPokemon.map(pokemon => (
-                  <Details pokemon={pokemon} key={pokemon.id} closeModal={closeModal} />
+                  <Details
+                    pokemon={pokemon}
+                    key={pokemon.id}
+                    closeModal={closeModal}
+                  />
                 ))}
               </div>
             </Modal>
@@ -122,7 +131,7 @@ function App() {
               &copy; Pokedex
             </div>
           </footer>
-        </>
+        </div>
       )}
     </>
   );

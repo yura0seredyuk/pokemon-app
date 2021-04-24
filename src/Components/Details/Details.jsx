@@ -58,8 +58,14 @@ export function Details({ pokemon, closeModal }) {
               {stat.stat.name}
             </div>
             <div className='pokemon__details__base-stat'>
-              <progress id='file' max='150' value={stat.base_stat}>{stat.base_stat}</progress>
-              <span className='pokemon__details__base-stat__value'>{stat.base_stat}</span>
+              <progress
+                max='150'
+                id='progressBar'
+                value={stat.base_stat}>{stat.base_stat}
+              </progress>
+              <span className='pokemon__details__base-stat__value'>
+                {stat.base_stat}
+              </span>
             </div>
           </div>
         ))}
